@@ -1,0 +1,75 @@
+<div class="card-top container-fluid">
+ <div class="container d-flex">
+  <div class="item"> 
+    <a (click)="filter('')">
+    <img src="https://rukminim1.flixcart.com/flap/128/128/image/f15c02bfeb02d15d.png?q=100" alt="">
+    <h6 routerLink="/products">All Products</h6>
+   </a>
+  </div>
+  <div class="item">
+   <a (click)="filter('laptops')">
+    <img src="https://rukminim1.flixcart.com/flap/128/128/image/69c6589653afdb9a.png?q=100" alt="">
+    <h6>Laptops</h6>
+   </a>
+  </div>
+  <div class="item">
+   <a (click)="filter('smartphones')">
+    <img src="https://rukminim1.flixcart.com/flap/128/128/image/22fddf3c7da4c4f4.png?q=100" alt="">
+    <h6>Smartphones</h6>
+   </a>
+  </div>
+  <div class="item">
+    <a (click)="filter('fragrances')">
+      <img  style="height:59px" src="https://dummyjson.com/image/i/products/12/thumbnail.jpg" alt="">
+      <h6>Fragrances</h6>
+  </a>
+  </div>
+  <div class="item">
+    <a (click)="filter('skincare')">
+      <img src="https://dummyjson.com/image/i/products/19/1.jpg" alt="">
+      <h6>Skincare</h6>
+  </a>
+  </div>
+  <div class="item">
+    <a (click)="filter('')">
+      <img src="https://rukminim1.flixcart.com/flap/128/128/image/29327f40e9c4d26b.png?q=100" alt="">
+      <h6>Groceries</h6>
+  </a>
+  </div>
+  <div class="item">
+    <a (click)="filter('home-decoration')">
+      <img  src="https://rukminim1.flixcart.com/flap/128/128/image/ab7e2b022a4587dd.jpg?q=100" alt="">
+      <h6>Home-decoration</h6>
+    </a>
+  </div>
+  <div class="item">
+    <a  routerLink="/brand">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuwtnBQi5-uoUhYbMC6byjVeaMCDR8S2xehQ&usqp=CAU" alt="">
+ <h6 class="brand">BRAND</h6>
+    </a>
+  </div>    <div class="sort">
+     <a class="items" routerLink="/sort-price">sort-price</a>
+      <a  class="items" routerLink="/sort-discount">sort-discount</a>
+    </div>
+ <div>
+</div>
+</div>
+<div  class="container">
+ <div class="row">
+  <ng-container *ngFor="let item of filterCategory | filter:searchKey:'title' | orderBy:'rating'">
+    <div class="card col-md-3">
+        <img  src="{{item.thumbnail}}" alt="">
+        <h5 style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch">{{item.title}}</h5>
+        <p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">{{item.description}}</p>
+      <table style="margin-bottom: 15px;">
+        <tr> <td style="width: 2px;">Rating:{{item.rating}}</td>
+          <td style="width: 2px;">Stock:{{item.stock}}</td>
+          <td style="width: 2px;">Price:${{item.price}}</td></tr>
+      </table>
+        <button style="margin-bottom: 5px;"  (click)=addtoitem(item) routerLink="/item" class="btn btn-success" (click)="simpleAlert()">Buy</button>
+        <button class="btn btn-primary" (click)=addtocart(item)>Add to cart</button>
+    </div>
+</ng-container>
+ </div>
+</div>
+

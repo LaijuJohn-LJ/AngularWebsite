@@ -1,0 +1,94 @@
+
+<div class="card-top container-fluid">
+    <button class="containers d-flex">
+     <div class="item"> 
+       <a (click)="filter('')">
+       <img src="https://rukminim1.flixcart.com/flap/128/128/image/f15c02bfeb02d15d.png?q=100" alt="">
+       <h6 class="prdt"  routerLink="/products">All Products</h6>
+      </a>
+     </div>
+     <div class="list"> 
+        <h6>smartphones</h6>
+        <ul>
+          <li (click)="filter('Apple')">Apple</li> 
+          <li (click)="filter('Samsung')">Samsung</li>
+          <li (click)="filter('OPPO')">OPPO</li>
+          <li (click)="filter('Huawei')">Huawei</li>
+        </ul>
+    
+    </div>
+    <div class="list"> 
+        <h6>laptops</h6>
+        <ul>
+          <li (click)="filter('APPle')">APPle</li>
+          <li (click)="filter('Samsung')">Samsung</li>
+          <li (click)="filter('Microsoft Surface')">Microsoft Surface</li>
+          <li (click)="filter('Infinix')">Infinix</li>
+          <li (click)="filter('HP Pavilion')">HP Pavilion</li>
+        </ul>
+    </div>
+    <div class="list"> 
+        <h6>fragrances</h6>
+        <ul>
+          <li (click)="filter('Impression of Acqua Di Gio')">Impression of Acqua Di Gio</li>
+          <li (click)="filter('Royal_Mirage')">Royal_Mirage</li>
+          <li (click)="filter('Fog Scent Xpressio')">Fog Scent Xpressio</li>
+          <li (click)="filter('Al Munakh')">Al Munakh</li>
+          <li (click)="filter('Lord - Al-Rehab')">Lord - Al-Rehab</li>
+        </ul>
+    </div>
+    <div class="list"> 
+        <h6>skincare</h6>
+        <ul>
+           <li (click)="filter('Hemani Tea')">Hemani Tea</li>
+           <li (click)="filter('L Oreal Paris')">L Oreal Paris</li>
+           <li (click)="filter('Fair & Clear')">Fair & Clear</li>
+           <li (click)="filter('ROREC White Rice')">ROREC White Rice</li>
+           <li (click)="filter('Dermive')">Dermive</li>
+        </ul>
+    </div>
+    <div class="list"> 
+        <h6>groceries</h6>
+        <ul>
+          <li (click)="filter('Saaf & Khaas')">Saaf & Khaas</li>
+          <li (click)="filter('fauji')">fauji</li>
+          <li (click)="filter('Bake Parlor Bi')">Bake Parlor Big</li>
+          <li (click)="filter('Baking Food Items')">Baking Food Items</li>
+          <li (click)="filter('Dry Rose')">Dry Rose</li>
+        </ul>
+    </div>
+    <div class="list"> 
+        <h6>home-decoration</h6>
+        <ul>
+          <li (click)="filter('Boho Decor')">Boho Decor</li>
+          <li (click)="filter('Flying Wooden')">Flying Wooden</li>
+          <li (click)="filter('LED Lights')">LED Lights</li>
+          <li (click)="filter('luxury palace')">luxury palace</li>
+          <li (click)="filter('Golden')">Golden</li>
+        </ul>
+    </div>
+  </button>
+    </div>
+   <div  class="container">
+    <div class="row">  
+               <ng-container *ngFor="let item of filterCategory | filter:searchKey:'title'  | orderBy:'rating'">
+            <div class="card col-md-3">
+                <img  src="{{item.thumbnail}}" alt="">
+                <h5 style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch">{{item.title}}</h5>
+                <p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">{{item.description}}</p>
+              <table style="margin-bottom: 15px;">
+                <tr> <td style="width: 2px;">Rating:{{item.rating}}</td>
+                  <td style="width: 2px;">Stock:{{item.stock}}</td>
+                  <td style="width: 2px;" >Price:${{item.price}}</td></tr>
+              </table>
+                <button style="margin-bottom: 5px;"  (click)=addtoitem(item) routerLink="/brand" class="btn btn-success" (click)="simpleAlert()">Buy</button>
+                <button class="btn btn-primary" (click)=addtocart(item)>Add to cart</button>
+            </div>
+           
+        </ng-container>
+       
+    </div>          
+    </div>
+  
+
+   
