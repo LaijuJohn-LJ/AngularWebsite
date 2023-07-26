@@ -112,9 +112,15 @@
               "node_modules/slick-carousel/slick/slick.min.js"
             ]
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy"
         }
       }
     }
   },
-  "defaultProject": "Form-App"
+  "defaultProject": "Form-App",
+  "cli": {
+    "analytics": "acba17af-97ae-402c-ada9-14be354db4db"
+  }
 }
